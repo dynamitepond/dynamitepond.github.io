@@ -6,56 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dynamite Pond</title>
-    <style type="text/css">
-        body {
-            background-color: #000;
-            font-family: "Courier New", monospace;
-            font-size: 16pt;
-            margin: 0.618em 0 0 0;
-            padding: 0;
-        }
-
-        body,
-        a {
-            color: #aaa;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #a00;
-        }
-
-        .header {
-            font-size: 1.618em;
-        }
-
-        .footer {
-            font-size: 0.618em;
-        }
-
-        .header,
-        .footer,
-        .content {
-            text-align: center;
-        }
-
-        .content {
-            padding: 0;
-            margin: 1.618em 0 1.618em 0;
-        }
-
-        .footer div {
-            padding: 0;
-            margin: 0 0 0.618em 0;
-        }
-
-        .article {
-            white-space: pre;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/site.css">
 </head>
 
-<body>
+<body data-theme="dark">
     <div class="header">
         <a href="/">Dynamite Pond</a>
     </div>
@@ -69,13 +23,13 @@
     <div class="footer">
         <div>&copy; 2019</div>
         <div>R J R MacKenzie</div>
+        <div class="themes">
+            <a href="javascript:void(0)" class="set-theme" data-theme="dark">DARK</a>
+            <a href="javascript:void(0)" class="set-theme" data-theme="light">LIGHT</a>
+        </div>
     </div>
 
-    <script type="text/javascript">
-        (function () {
-            console.log("dynamite pond");
-        })();
-    </script>
+    <script type="text/javascript" src="js/site.js"></script>
 </body>
 
 </html>
