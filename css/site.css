@@ -23,6 +23,15 @@ body[data-theme="light"], body[data-theme="light"] a {
 body[data-theme="light"] a:hover {
     color: #a00;
 }
+
+/* show currently enabled theme */
+body[data-theme="dark"] .set-theme[data-theme="dark"] {
+    text-decoration: underline;
+}
+
+body[data-theme="light"] .set-theme[data-theme="light"] {
+    text-decoration: underline;
+}
 /* end themes */
 
 body {
@@ -59,8 +68,4 @@ a {
 .footer div {
     padding: 0;
     margin: 0 0 0.618em 0;
-}
-
-.article {
-    white-space: pre;
 }
