@@ -54,7 +54,6 @@ var dynamitepond = {};
             var toggles = document.getElementsByClassName("toggle");
             for (var i = 0; i < toggles.length; i++) {
                 toggles[i].onclick = function() {
-                    // TODO: hide other toggles in the group??
                     var target = document.getElementById(this.dataset.target);
                     var turnOn = this.dataset.toggle !== "on";
                     if (turnOn) {
