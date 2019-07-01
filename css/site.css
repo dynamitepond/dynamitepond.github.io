@@ -7,7 +7,11 @@ body, a, body[data-theme="dark"], body[data-theme="dark"] a {
     color: #aaa;
 }
 
-body a:hover, body[data-theme="dark"] a:hover {
+body a:hover,
+body[data-theme="dark"] a:hover
+body #toggle-settings[toggle="on"],
+body[data-theme="dark"] #toggle-settings[data-toggle="on"]
+{
     color: #a00;
 }
 
@@ -20,7 +24,8 @@ body[data-theme="light"], body[data-theme="light"] a {
     color: #000;
 }
 
-body[data-theme="light"] a:hover {
+body[data-theme="light"] a:hover,
+body[data-theme="light"] #toggle-settings[data-toggle="on"] {
     color: #a00;
 }
 
@@ -49,8 +54,9 @@ body {
     display: block;
 }
 
-code, .header, .footer {
+.header, .footer {
     font-family: "Courier New", monospace;
+    text-align: center;
 }
 
 body,
@@ -66,15 +72,10 @@ a {
     font-size: 0.618em;
 }
 
-.header,
-.footer,
-.content {
-    text-align: center;
-}
-
 .content {
     padding: 0;
-    margin: 1.618em 0 1.618em 0;
+    max-width: 666px;
+    margin: 1.618em auto 1.618em auto;
 }
 
 .footer div {
@@ -82,6 +83,14 @@ a {
     margin: 0 0 0.618em 0;
 }
 
+#nav-links {
+    text-align: center;
+    
+}
 #nav-links a {
     display: block;
+}
+
+[data-show="off"] {
+    display: none;
 }
