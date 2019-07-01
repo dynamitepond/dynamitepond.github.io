@@ -1,17 +1,16 @@
 /* dark theme (also default theme)*/
-body, body[data-theme="dark"] {
+body,
+body[data-theme="dark"] {
     background-color: #000;
 }
 
-body, a, body[data-theme="dark"], body[data-theme="dark"] a {
+body, a,
+body[data-theme="dark"], body[data-theme="dark"] a {
     color: #aaa;
 }
 
-body a:hover,
-body[data-theme="dark"] a:hover
-body #toggle-settings[toggle="on"],
-body[data-theme="dark"] #toggle-settings[data-toggle="on"]
-{
+body a:hover, body .toggle[toggle="on"],
+body[data-theme="dark"] a:hover, body[data-theme="dark"] .toggle[data-toggle="on"] {
     color: #a00;
 }
 
@@ -24,8 +23,7 @@ body[data-theme="light"], body[data-theme="light"] a {
     color: #000;
 }
 
-body[data-theme="light"] a:hover,
-body[data-theme="light"] #toggle-settings[data-toggle="on"] {
+body[data-theme="light"] a:hover, body[data-theme="light"] .toggle[data-toggle="on"] {
     color: #a00;
 }
 
@@ -40,23 +38,15 @@ body[data-theme="light"] .set-theme[data-theme="light"] {
 /* end themes */
 
 body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: "Courier New", monospace;
     font-size: 16pt;
     margin: 0.618em 0 0 0;
     padding: 0;
 }
 
-.article {
-    display: none;
-}
-
-.article.visible-article {
-    display: block;
-}
-
-.header, .footer {
-    font-family: "Courier New", monospace;
+#page-header, #page-footer, #article-title, #article-date {
     text-align: center;
+    clear:both;
 }
 
 body,
@@ -64,33 +54,68 @@ a {
     text-decoration: none;
 }
 
-.header {
+#page-header, #article-title {
     font-size: 1.618em;
 }
 
-.footer {
+#page-footer, #article-date {
     font-size: 0.618em;
 }
 
-.content {
-    padding: 0;
-    max-width: 666px;
-    margin: 1.618em auto 1.618em auto;
+#page-content {
+    margin: 1.618em 0 1.618em 0;
 }
 
-.footer div {
-    padding: 0;
+#article {
+    width: 50%;
+    clear: none;
+    float: left;
+}
+
+#article-content {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    max-width: 666px;
+    margin: 0 auto 0 auto;
+}
+
+#nav {
+    width: 25%;
+    float: left;
+    text-align: left;
+}
+
+#recent {
+    width: 25%;
+    float: right;
+    text-align: right;
+}
+
+#nav, #recent {
+    margin: 1.618em 0 0 0;
+}
+
+#page-footer div {
     margin: 0 0 0.618em 0;
 }
 
-#nav-links {
-    text-align: center;
-    
-}
 #nav-links a {
     display: block;
 }
 
 [data-show="off"] {
     display: none;
+}
+
+#footer-toggles {
+    font-size: 1.618em;
+}
+
+@media screen and (max-width: 600px) {
+    #article, #nav, #recent {
+        width: 100%;
+    }
+    #nav, #recent {
+        text-align: center;
+        margin: 0 0 1.618em 0;
+    }
 }

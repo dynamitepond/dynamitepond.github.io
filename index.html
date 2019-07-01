@@ -11,33 +11,57 @@
 </head>
 
 <body data-theme="dark">
-    <div class="header">
+    <div id="page-header">
         <a href="#">Dynamite Pond</a>
     </div>
     
-    <div class="content">
-        <div class="article visible-article" data-name="">
+    <div id="page-content">
+        
+        <div id="nav">
+            NAV
             <div id="nav-links"></div>
         </div>
 
-        <div class="article" data-name="test" data-title="test" data-source="articles/test.html"></div>
-        <div class="article" data-name="about" data-title="about" data-source="articles/about.html"></div>
-        <div class="article" data-name="contact" data-title="contact" data-source="articles/contact.html"></div>
+        <div id="article">
+            <div id="article-title"></div>
+            <div id="article-date"></div>
+            <div id="article-content"></div>
+        </div>
+
+        <div id="recent">
+            RECENT
+            <div id="recent-links">
+            </div>
+        </div>
 
         <noscript>Dynamite Pond requires javascript to function</noscript>
     </div>
 
-    <div class="footer">
+    <div id="page-footer">
         <div>&copy; 2019</div>
         <div>R J R MacKenzie</div>
-        <div><a href="javascript:void(0)" id="toggle-settings">&#9881;</a></div>
+        <div id="footer-toggles">
+            <a href="javascript:void(0)" class="toggle" data-target="settings" title="Settings">&#9881;</a>
+            <a href="javascript:void(0)" class="toggle" data-target="email-details" title="Email">&#9993;</a>
+        </div>
         <div id="settings" data-show="off">
-            <a href="javascript:void(0)" class="set-theme" data-theme="dark">DARK</a>
-            <a href="javascript:void(0)" class="set-theme" data-theme="light">LIGHT</a>
+            <a href="javascript:void(0)" class="set-theme" data-theme="dark" title="Change to dark theme">DARK</a>
+            <a href="javascript:void(0)" class="set-theme" data-theme="light" title="Change to light theme">LIGHT</a>
+        </div>
+        <div id="email-details" data-show="off">
+            contact@dynamitepond.com
         </div>
     </div>
 
     <script type="text/javascript" src="js/site.js"></script>
+    <script type="text/javascript">
+        (function () {
+            dynamitepond.registerArticle("test", "test article", new Date("2019-07-02T10:00:00Z"), []);
+            dynamitepond.registerArticle("about", "making a custom website", new Date("2019-07-01T10:00:00Z"), []);
+            dynamitepond.registerArticle("contact", "another article", new Date("2019-06-22T10:00:00Z"), []);
+            dynamitepond.ignite("about");
+        })();
+    </script>
 </body>
 
 </html>
