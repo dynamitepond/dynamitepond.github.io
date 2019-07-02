@@ -18,23 +18,23 @@
     <div id="page-content">
         
         <div id="nav">
-            NAV
+            <div id="nav-search">
+                <input type="text" id="nav-query" name="nav-query" placeholder="[Search...]" title="Enter text to search">
+            </div>
             <div id="nav-links"></div>
+            <div id="nav-pagination"></div>
         </div>
 
         <div id="article">
             <div id="article-title"></div>
             <div id="article-date"></div>
-            <div id="article-content"></div>
+            <div id="article-content"><noscript>Dynamite Pond requires javascript to function</noscript></div>
         </div>
 
         <div id="recent">
-            RECENT
             <div id="recent-links">
             </div>
         </div>
-
-        <noscript>Dynamite Pond requires javascript to function</noscript>
     </div>
 
     <div id="page-footer">
@@ -56,9 +56,9 @@
     <script type="text/javascript" src="js/site.js"></script>
     <script type="text/javascript">
         (function () {
-            dynamitepond.registerArticle("test", "test article", new Date("2019-07-02T10:00:00Z"), []);
-            dynamitepond.registerArticle("about", "making a custom website", new Date("2019-07-01T10:00:00Z"), []);
-            dynamitepond.registerArticle("contact", "another article", new Date("2019-06-22T10:00:00Z"), []);
+            dynamitepond.registerArticle("test", "Test Article", new Date("2019-07-02T10:00:00Z"), []);
+            dynamitepond.registerArticle("about", "Making a Custom Website", new Date("2019-07-01T10:00:00Z"), []);
+            dynamitepond.registerArticle("contact", "Another Article", new Date("2019-06-22T10:00:00Z"), []);
             dynamitepond.ignite("about");
         })();
     </script>

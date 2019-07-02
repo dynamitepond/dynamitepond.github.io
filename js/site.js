@@ -5,11 +5,13 @@ var dynamitepond = {};
 (function () {
 
     var htmlElements = {
+        body: document.getElementsByTagName("body")[0],
         articleTitle: document.getElementById("article-title"),
         articleDate: document.getElementById("article-date"),
         articleContent: document.getElementById("article-content"),
 
-        navLinks: document.getElementById("nav-links")
+        navLinks: document.getElementById("nav-links"),
+        navQuery: document.getElementById("nav-query")
     };
 
     var dynamiteRepository = {
@@ -25,21 +27,24 @@ var dynamitepond = {};
         }
     };
     
-    
     dynamitepond = {
         defaultArticle: "",
-        articleRegistry: [],
+        articleRegistry: [], // for looking up by name
+        articleList: [], // for sorting/pagination
+
         registerArticle: function(name, title, publishDate, keywords) {
             if (dynamitepond.articleRegistry[name]) {
                 alert("'" + name + "' has already been registered!");
             }
-            dynamitepond.articleRegistry[name] = {
+            var article = {
                 name,
                 title,
                 src: "articles/" + name + ".html",
-                publishDate: publishDate.getFullYear() + " " + (publishDate.getMonth() + 1).pad(2) + " " + publishDate.getDate().pad(2),
+                publishDate: publishDate,
                 keywords,
             };
+            dynamitepond.articleRegistry[name] = article;
+            dynamitepond.articleList.push(article);
         },
 
         ignite: function (defaultArticle) {
@@ -47,7 +52,7 @@ var dynamitepond = {};
             dynamitepond.customization.init();
 
             dynamitepond.defaultArticle = defaultArticle;
-            dynamitepond.articles.init();
+            dynamitepond.nav.init();
         },
     
         initToggles: function() {
@@ -83,34 +88,74 @@ var dynamitepond = {};
                     }
                 }
             },
-            changeTheme: function(themeName) {
-                var body = document.getElementsByTagName("body")[0];
-                body.dataset.theme = themeName;
+            changeTheme: function(themeName) { 
+                htmlElements.body.dataset.theme = themeName;
                 dynamiteRepository.theme(themeName);
             }
         },
     
-        articles: {
+        nav: {
+            page: 0,
+            pageSize: 20,
+
+            orderby: 0, // 0: date, 1: alpha
+            orderdesc: true,
+
             init: function() {
-                dynamitepond.articles.loadCurrentArticle();
+                dynamitepond.nav.loadCurrentArticle();
                 window.onhashchange = function() {
-                    dynamitepond.articles.loadCurrentArticle();
+                    dynamitepond.nav.loadCurrentArticle();
                 };
                 
-                // add all links, no pagination or sorting yet
-                Object.keys(dynamitepond.articleRegistry).forEach(function(key, index) {
-                    var article = dynamitepond.articleRegistry[key];
+                htmlElements.navQuery.onchange = function () {
+                    dynamitepond.nav.page = 0;
+                    dynamitepond.nav.renderPage();
+                };
+
+                dynamitepond.nav.renderPage();
+            },
+
+            renderPage: function() {
+                htmlElements.navLinks.innerHTML = "";
+
+                var filtered = dynamitepond.nav.filterArticles();
+
+                var start = dynamitepond.nav.page * dynamitepond.nav.pageSize;
+                var end = Math.min(start + dynamitepond.nav.pageSize, filtered.length);
+
+                for(var i = start; i < end; i++) {
+                    var article = filtered[i];
 
                     var href = "#" + article.name;
                     var anchor = document.createElement('a');
                     anchor.setAttribute("href", href);
-                    anchor.innerHTML = article.title;
+                    anchor.className = "article-link";
+                    anchor.innerHTML = "<div>" + article.title + "</div><div class='pub-date'>" + article.publishDate.toDynamite() + "</div>";
                     anchor.title = article.title;
                     htmlElements.navLinks.appendChild(anchor);
-                });
+                }
             },
-    
+            
+            filterArticles: function() {
+                var filtered = dynamitepond.articleList;
+                var query = (htmlElements.navQuery.value || "").toUpperCase();
+                
+                if (query) {
+                    filtered = filtered.filter(function (el) {
+                        return el.title.toUpperCase().indexOf(query) !== -1;
+                    });
+                }
+
+                filtered.dynamiteSort(dynamitepond.nav.orderby, dynamitepond.nav.orderdesc);
+
+                return filtered;
+            },
+
             loadCurrentArticle: function() {
+                /* TODO: consider storing articles in local storage
+                maybe expire them after a half hour or so (or if they have lots of articles stored)
+                add an option to purge storage in settings? */
+
                 var articleName = getHref();
                 if (articleName === "") {
                     articleName = dynamitepond.defaultArticle;
@@ -123,7 +168,7 @@ var dynamitepond = {};
                     if (this.readyState!==4) return;
                     if (this.status!==200) return;
                     htmlElements.articleTitle.innerHTML = article.title;
-                    htmlElements.articleDate.innerHTML = article.publishDate;
+                    htmlElements.articleDate.innerHTML = article.publishDate.toDynamite();
                     htmlElements.articleContent.innerHTML = this.responseText;
                 };
                 xhr.send();
@@ -159,6 +204,47 @@ var dynamitepond = {};
             s = "0" + s;
         }
         return s;
+    };
+
+    Date.prototype.toDynamite = function() {
+        return this.getFullYear() + " " + (this.getMonth() + 1).pad(2) + " " + this.getDate().pad(2);
+    };
+
+    Array.prototype.dynamiteSort = function(orderby, orderdesc) {
+        if (orderby === 1) {
+            this.dynamiteAlphaSort(orderdesc);
+        }
+        else {
+            this.dynamiteDateSort(orderdesc);
+        }
+    };
+
+    Array.prototype.dynamiteDateSort = function(descending) {
+        descending || true;
+        this.sort(function(a, b) {
+            if (a.publishDate < b.publishDate) {
+                return descending ? 1 : -1;
+            }
+            if (a.publishDate > b.publishDate) {
+                return descending ? -1 : 1;
+            }
+            return 0;
+        });
+        return this;
+    };
+
+    Array.prototype.dynamiteAlphaSort = function(descending) {
+        descending || true;
+        this.sort(function(a, b) {
+            if (a.title < b.title) {
+                return descending ? 1 : -1;
+            }
+            if (a.title > b.title) {
+                return descending ? -1 : 1;
+            }
+            return 0;
+        });
+        return this;
     }
 
 })();

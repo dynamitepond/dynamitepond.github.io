@@ -14,6 +14,43 @@ body[data-theme="dark"] a:hover, body[data-theme="dark"] .toggle[data-toggle="on
     color: #a00;
 }
 
+body input,
+body[data-theme="dark"] input {
+    background-color: #000;
+    color: #a00;
+}
+
+
+
+body ::-webkit-input-placeholder,
+body[data-theme="dark"] ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #aaa;
+}
+body :-moz-placeholder,
+body[data-theme="dark"] :-moz-placeholder{ /* Mozilla Firefox 4 to 18 */
+   color: #aaa;
+   opacity:  1;
+}
+body ::-moz-placeholder,
+body[data-theme="dark"]  ::-moz-placeholder{ /* Mozilla Firefox 19+ */
+   color: #aaa;
+   opacity: 1;
+}
+body :-ms-input-placeholder,
+body[data-theme="dark"] :-ms-input-placeholder{ /* Internet Explorer 10-11 */
+   color: #aaa;
+}
+body ::-ms-input-placeholder,
+body[data-theme="dark"] ::-ms-input-placeholder { /* Microsoft Edge */
+   color: #aaa;
+}
+body ::placeholder,
+body[data-theme="dark"] ::placeholder { /* Most modern browsers support this now. */
+   color: #aaa;
+}
+
+
+
 /* light theme */
 body[data-theme="light"] {
     background-color: #aaa;
@@ -26,6 +63,43 @@ body[data-theme="light"], body[data-theme="light"] a {
 body[data-theme="light"] a:hover, body[data-theme="light"] .toggle[data-toggle="on"] {
     color: #a00;
 }
+
+body[data-theme="light"] input {
+    background-color: #aaa;
+    color: #a00;
+}
+
+
+
+
+
+
+body[data-theme="light"] ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #000;
+}
+body[data-theme="light"] :-moz-placeholder{ /* Mozilla Firefox 4 to 18 */
+   color: #000;
+   opacity: 1;
+}
+body[data-theme="light"]  ::-moz-placeholder{ /* Mozilla Firefox 19+ */
+   color: #000;
+   opacity: 1;
+}
+body[data-theme="light"] :-ms-input-placeholder{ /* Internet Explorer 10-11 */
+   color: #000;
+}
+body[data-theme="light"] ::-ms-input-placeholder { /* Microsoft Edge */
+   color: #000;
+}
+body[data-theme="light"] ::placeholder { /* Most modern browsers support this now. */
+   color: #000;
+}
+
+
+
+
+
+
 
 /* show currently enabled theme */
 body[data-theme="dark"] .set-theme[data-theme="dark"] {
@@ -43,6 +117,21 @@ body {
     margin: 0.618em 0 0 0;
     padding: 0;
 }
+
+input {
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+}
+
+input:focus {
+    outline:none;
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 
 #page-header, #page-footer, #article-title, #article-date {
     text-align: center;
@@ -74,7 +163,7 @@ a {
 
 #article-content {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    max-width: 666px;
+    max-width: 1013px;
     margin: 0 auto 0 auto;
 }
 
@@ -82,24 +171,38 @@ a {
     width: 25%;
     float: left;
     text-align: left;
+    /* border-right: 1px solid #a00; */
 }
 
 #recent {
     width: 25%;
     float: right;
     text-align: right;
+    /* border-left: 1px solid #a00; */
 }
 
-#nav, #recent {
-    margin: 1.618em 0 0 0;
+#nav, #recent, #article {
+    box-sizing: border-box;
+    padding: 0 0.618em 0 0.618em;
 }
 
 #page-footer div {
     margin: 0 0 0.618em 0;
 }
 
-#nav-links a {
+a.article-link {
     display: block;
+    margin-top: 0.618em;
+}
+
+a.article-link .pub-date {
+    font-size: 0.618em;
+}
+
+a.article-link div{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 [data-show="off"] {
@@ -117,6 +220,7 @@ a {
     #nav, #recent {
         text-align: center;
         margin: 0 0 1.618em 0;
+        padding-top: 0;
     }
 
     #recent {
