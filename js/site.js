@@ -11,7 +11,14 @@ var dynamitepond = {};
         articleContent: document.getElementById("article-content"),
 
         navLinks: document.getElementById("nav-links"),
-        navQuery: document.getElementById("nav-query")
+        navQuery: document.getElementById("nav-query"),
+        navPagination: document.getElementById("nav-pagination"),
+
+        navOrderAlpha: document.getElementById("order-alpha"),
+        navOrderDate: document.getElementById("order-date"),
+        navOrderAsc: document.getElementById("order-asc"),
+        navOrderDesc: document.getElementById("order-desc"),
+        navClear: document.getElementById("nav-clear"),
     };
 
     var dynamiteRepository = {
@@ -33,6 +40,7 @@ var dynamitepond = {};
         articleList: [], // for sorting/pagination
 
         registerArticle: function(name, title, publishDate, keywords) {
+            console.log(name + " " + name.replace(/_/g, ""));
             if (dynamitepond.articleRegistry[name]) {
                 alert("'" + name + "' has already been registered!");
             }
@@ -69,6 +77,7 @@ var dynamitepond = {};
                         this.dataset.toggle = "off";
                         target.dataset.show = "off";
                     }
+                    window.scrollTo(0,document.body.scrollHeight);
                 };
             }
         },
@@ -96,7 +105,7 @@ var dynamitepond = {};
     
         nav: {
             page: 0,
-            pageSize: 20,
+            pageSize: 13,
 
             orderby: 0, // 0: date, 1: alpha
             orderdesc: true,
@@ -112,10 +121,66 @@ var dynamitepond = {};
                     dynamitepond.nav.renderPage();
                 };
 
+                htmlElements.body.addEventListener("click", function(ev) {
+                    if (ev.target.className === "nav-page-link") {
+                        dynamitepond.nav.page = ev.target.dataset.page - 1;
+                        dynamitepond.nav.renderPage();
+                    }
+                });
+
+
+                htmlElements.navOrderAlpha.onclick = function() {
+                    dynamitepond.nav.orderby = 1;
+                    dynamitepond.nav.page = 0;
+                    dynamitepond.nav.renderPage();
+                };
+                htmlElements.navOrderDate.onclick = function() {
+                    dynamitepond.nav.orderby = 0;
+                    dynamitepond.nav.page = 0;
+                    dynamitepond.nav.renderPage();
+                };
+                htmlElements.navOrderAsc.onclick = function() {
+                    dynamitepond.nav.orderdesc = false;
+                    dynamitepond.nav.page = 0;
+                    dynamitepond.nav.renderPage();
+                };
+                htmlElements.navOrderDesc.onclick = function() {
+                    dynamitepond.nav.orderdesc = true;
+                    dynamitepond.nav.page = 0;
+                    dynamitepond.nav.renderPage();
+                };
+                htmlElements.navClear.onclick = function() {
+                    htmlElements.navQuery.value = "";
+                    dynamitepond.nav.page = 0;
+                    dynamitepond.nav.renderPage();
+                };
+
                 dynamitepond.nav.renderPage();
             },
 
+            updateNavOptionDisplay: function() {
+                if (dynamitepond.nav.orderby === 1) {
+                    htmlElements.navOrderAlpha.dataset.current = "true";
+                    htmlElements.navOrderDate.dataset.current = "false";
+                }
+                else {
+                    htmlElements.navOrderAlpha.dataset.current = "false";
+                    htmlElements.navOrderDate.dataset.current = "true";
+                }
+
+                if (dynamitepond.nav.orderdesc) {
+                    htmlElements.navOrderDesc.dataset.current = "true";
+                    htmlElements.navOrderAsc.dataset.current = "false";
+                }
+                else {
+                    htmlElements.navOrderDesc.dataset.current = "false";
+                    htmlElements.navOrderAsc.dataset.current = "true";
+                }
+            },
+
             renderPage: function() {
+                dynamitepond.nav.updateNavOptionDisplay();
+
                 htmlElements.navLinks.innerHTML = "";
 
                 var filtered = dynamitepond.nav.filterArticles();
@@ -134,6 +199,53 @@ var dynamitepond = {};
                     anchor.title = article.title;
                     htmlElements.navLinks.appendChild(anchor);
                 }
+
+                if (filtered.length === 0) {
+                    var noDynamite = document.createElement('span');
+                    noDynamite.innerHTML = "no dynamite";
+                    noDynamite.className = "nav-no-dynamite";
+                    htmlElements.navLinks.appendChild(noDynamite);
+                }
+
+                var numberPages = Math.ceil(filtered.length / dynamitepond.nav.pageSize);
+                dynamitepond.nav.renderPagination(dynamitepond.nav.page + 1, numberPages);
+            },
+
+            renderPagination: function(page, numberPages) {
+                htmlElements.navPagination.innerHTML = "";
+                if (numberPages > 0)
+                {
+                    var remainingLinks = 4;
+                    var startLimit = page;
+                    var endLimit = page;
+
+                    while (remainingLinks > 0) {
+                        if (startLimit > 1) {
+                            startLimit--;
+                            remainingLinks--;
+                        }
+                        if (endLimit < numberPages) {
+                            endLimit++;
+                            remainingLinks--;
+                        }
+                        if (startLimit <= 1 && endLimit >= numberPages) {
+                            remainingLinks = 0;
+                        }
+                    }
+
+                    if (startLimit !== 1) {
+                        // add links to go to first page
+                        htmlElements.navPagination.appendChild(makePageLink(1, "<<"));
+                    }
+
+                    for (var i = startLimit; i <= endLimit; i++) {
+                        htmlElements.navPagination.appendChild(makePageLink(i, i, i === page));
+                    }
+
+                    if (endLimit !== numberPages) {
+                        htmlElements.navPagination.appendChild(makePageLink(numberPages, ">>"));
+                    }
+                }
             },
             
             filterArticles: function() {
@@ -145,7 +257,7 @@ var dynamitepond = {};
                         return el.title.toUpperCase().indexOf(query) !== -1;
                     });
                 }
-
+                console.log(dynamitepond.nav.orderby + " " + dynamitepond.nav.orderdesc);
                 filtered.dynamiteSort(dynamitepond.nav.orderby, dynamitepond.nav.orderdesc);
 
                 return filtered;
@@ -198,6 +310,23 @@ var dynamitepond = {};
         }
     }
 
+    function makePageLink(page, innerHtml, currentPage) {
+        innerHtml = innerHtml || page;
+
+        var anchor = document.createElement('a');
+        anchor.setAttribute("href", "javascript:void(0)");
+        anchor.className = "nav-page-link";
+        anchor.innerHTML = innerHtml;
+        anchor.title = "Go to page " + page;
+        anchor.dataset.page = page;
+
+        if (currentPage) {
+            anchor.dataset.current = "true";
+        }
+
+        return anchor;
+    }
+
     Number.prototype.pad = function(len) {
         var s = String(this);
         while (s.length < len) {
@@ -220,7 +349,6 @@ var dynamitepond = {};
     };
 
     Array.prototype.dynamiteDateSort = function(descending) {
-        descending || true;
         this.sort(function(a, b) {
             if (a.publishDate < b.publishDate) {
                 return descending ? 1 : -1;
@@ -234,7 +362,6 @@ var dynamitepond = {};
     };
 
     Array.prototype.dynamiteAlphaSort = function(descending) {
-        descending || true;
         this.sort(function(a, b) {
             if (a.title < b.title) {
                 return descending ? 1 : -1;

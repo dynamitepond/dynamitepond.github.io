@@ -20,6 +20,13 @@
         <div id="nav">
             <div id="nav-search">
                 <input type="text" id="nav-query" name="nav-query" placeholder="[Search...]" title="Enter text to search">
+                <div id="nav-controls">
+                    <a href="javascript:void(0)" id="order-alpha" title="Order alphabetically">abc</a>
+                    <a href="javascript:void(0)" id="order-date" title="Order by publish date">date</a>
+                    <a href="javascript:void(0)" id="order-asc" title="Order ascending">&#8599;</a>
+                    <a href="javascript:void(0)" id="order-desc" title="Order descending">&#8600;</a>
+                    <a href="javascript:void(0)" id="nav-clear" title="Clear search">clear</a>
+                </div>
             </div>
             <div id="nav-links"></div>
             <div id="nav-pagination"></div>
@@ -56,10 +63,24 @@
     <script type="text/javascript" src="js/site.js"></script>
     <script type="text/javascript">
         (function () {
-            dynamitepond.registerArticle("test", "Test Article", new Date("2019-07-02T10:00:00Z"), []);
-            dynamitepond.registerArticle("about", "Making a Custom Website", new Date("2019-07-01T10:00:00Z"), []);
-            dynamitepond.registerArticle("contact", "Another Article", new Date("2019-06-22T10:00:00Z"), []);
-            dynamitepond.ignite("about");
+            dynamitepond.registerArticle("loremipsum_1", "Minim Veniam, Quis Nostrud", new Date("2019-06-01T10:00:00Z"), []);
+            dynamitepond.registerArticle("loremipsum_2", "Mattis Nunc Sed", new Date("2019-06-02T10:00:00Z"), []);
+            dynamitepond.registerArticle("loremipsum_3", "Ante metus dictum at tempor", new Date("2019-06-04T10:00:00Z"), []);
+            dynamitepond.registerArticle("loremipsum_4", "Dui Faucibus In", new Date("2019-06-05T10:00:00Z"), []);
+            dynamitepond.registerArticle("loremipsum_5", "Cursus Eget nunc Scelerisque", new Date("2019-06-06T10:00:00Z"), []);
+            dynamitepond.registerArticle("loremipsum_6", "Non Consectetur a Erat Nam", new Date("2019-06-07T10:00:00Z"), []);
+            dynamitepond.registerArticle("loremipsum_7", "Urna Condimentum Mattis Pellentesque id Nibh", new Date("2019-06-08T10:00:00Z"), []);
+            dynamitepond.registerArticle("loremipsum_8", "Porttitor rhoncus dolor purus non", new Date("2019-06-10T10:00:00Z"), []);
+            dynamitepond.registerArticle("loremipsum_9", "Commodo quis imperdiet", new Date("2019-06-11T10:00:00Z"), []);
+            dynamitepond.registerArticle("loremipsum_10", "Velit aliquet sagittis", new Date("2019-06-13T10:00:00Z"), []);
+            dynamitepond.registerArticle("loremipsum_11", "Rhoncus", new Date("2019-06-14T10:00:00Z"), []);
+            dynamitepond.registerArticle("loremipsum_12", "Lobortis scelerisque fermentum", new Date("2019-06-14T10:00:00Z"), []);
+            dynamitepond.registerArticle("loremipsum_13", "Quis enim lobortis", new Date("2019-06-15T10:00:00Z"), []);
+            dynamitepond.registerArticle("loremipsum_14", "Vitae congue mauris rhoncus aenean", new Date("2019-06-17T10:00:00Z"), []);
+            dynamitepond.registerArticle("loremipsum_15", "Lacus sed turpis", new Date("2019-06-18T10:00:00Z"), []);
+            dynamitepond.registerArticle("loremipsum_16", "Luctus accumsan tortor posuere", new Date("2019-06-19T10:00:00Z"), []);
+
+            dynamitepond.ignite("loremipsum_1");
         })();
     </script>
 </body>

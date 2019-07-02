@@ -9,8 +9,8 @@ body[data-theme="dark"], body[data-theme="dark"] a {
     color: #aaa;
 }
 
-body a:hover, body .toggle[toggle="on"],
-body[data-theme="dark"] a:hover, body[data-theme="dark"] .toggle[data-toggle="on"] {
+body a:hover, body [data-toggle="on"],
+body[data-theme="dark"] a:hover, body[data-theme="dark"] [data-toggle="on"] {
     color: #a00;
 }
 
@@ -19,6 +19,7 @@ body[data-theme="dark"] input {
     background-color: #000;
     color: #a00;
 }
+
 
 
 
@@ -68,6 +69,7 @@ body[data-theme="light"] input {
     background-color: #aaa;
     color: #a00;
 }
+
 
 
 
@@ -159,6 +161,7 @@ a {
     width: 50%;
     clear: none;
     float: left;
+    min-height: 439px;
 }
 
 #article-content {
@@ -190,7 +193,7 @@ a {
     margin: 0 0 0.618em 0;
 }
 
-a.article-link {
+#nav-pagination, a.article-link, .nav-no-dynamite {
     display: block;
     margin-top: 0.618em;
 }
@@ -211,6 +214,37 @@ a.article-link div{
 
 #footer-toggles {
     font-size: 1.618em;
+}
+
+.nav-page-link {
+    display: inline-block;
+    margin-right: 0.618em;
+}
+
+#nav-links {
+    clear: both;
+    margin-top: 1.618em;
+}
+
+#nav-search input {
+    width: 100%;
+}
+#nav-controls {
+    font-size: 0.618em;
+}
+
+#nav-controls a {
+    display: inline-block;
+    margin-right: 0.618em;
+    float: left;
+}
+
+#nav-controls #nav-clear {
+    margin-left: 1.618em;
+}
+
+[data-current="true"] {
+    text-decoration: underline;
 }
 
 @media screen and (max-width: 600px) {
