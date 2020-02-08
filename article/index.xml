@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Articles on Dynamite Pond</title>
-    <link>dynamitepond.com/article/</link>
+    <link>//dynamitepond.com/article/</link>
     <description>Recent content in Articles on Dynamite Pond</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 08 Feb 2020 13:43:43 +1300</lastBuildDate>
     
-	<atom:link href="dynamitepond.com/article/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//dynamitepond.com/article/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>First article</title>
-      <link>dynamitepond.com/article/first/</link>
+      <link>//dynamitepond.com/article/first/</link>
       <pubDate>Sat, 08 Feb 2020 13:43:43 +1300</pubDate>
       
-      <guid>dynamitepond.com/article/first/</guid>
+      <guid>//dynamitepond.com/article/first/</guid>
       <description>This is my first article testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing dsas g r resdsearwaes fasrg grsgsergesrag sgaserd gasrdg aergasrefg asef awsef wareg etsergh wafr gerg rgfae gasrgaef gsaefg asreg drhgbawer grfcxvzxcgawe r asg asrgasdfawg dfgaewrg erasg aergsdzfg aergfdg b</description>
     </item>
     
