@@ -1,263 +1,91 @@
-/* dark theme (also default theme)*/
-body,
-body[data-theme="dark"] {
-    background-color: #000;
-}
-
-body, a,
-body[data-theme="dark"], body[data-theme="dark"] a {
-    color: #aaa;
-}
-
-body a:hover, body [data-toggle="on"],
-body[data-theme="dark"] a:hover, body[data-theme="dark"] [data-toggle="on"] {
-    color: #a00;
-}
-
-body input,
-body[data-theme="dark"] input {
-    background-color: #000;
-    color: #a00;
-}
-
-
-
-
-body ::-webkit-input-placeholder,
-body[data-theme="dark"] ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color: #aaa;
-}
-body :-moz-placeholder,
-body[data-theme="dark"] :-moz-placeholder{ /* Mozilla Firefox 4 to 18 */
-   color: #aaa;
-   opacity:  1;
-}
-body ::-moz-placeholder,
-body[data-theme="dark"]  ::-moz-placeholder{ /* Mozilla Firefox 19+ */
-   color: #aaa;
-   opacity: 1;
-}
-body :-ms-input-placeholder,
-body[data-theme="dark"] :-ms-input-placeholder{ /* Internet Explorer 10-11 */
-   color: #aaa;
-}
-body ::-ms-input-placeholder,
-body[data-theme="dark"] ::-ms-input-placeholder { /* Microsoft Edge */
-   color: #aaa;
-}
-body ::placeholder,
-body[data-theme="dark"] ::placeholder { /* Most modern browsers support this now. */
-   color: #aaa;
-}
-
-
-
-/* light theme */
-body[data-theme="light"] {
-    background-color: #aaa;
-}
-
-body[data-theme="light"], body[data-theme="light"] a {
-    color: #000;
-}
-
-body[data-theme="light"] a:hover, body[data-theme="light"] .toggle[data-toggle="on"] {
-    color: #a00;
-}
-
-body[data-theme="light"] input {
-    background-color: #aaa;
-    color: #a00;
-}
-
-
-
-
-
-
-
-body[data-theme="light"] ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color: #000;
-}
-body[data-theme="light"] :-moz-placeholder{ /* Mozilla Firefox 4 to 18 */
-   color: #000;
-   opacity: 1;
-}
-body[data-theme="light"]  ::-moz-placeholder{ /* Mozilla Firefox 19+ */
-   color: #000;
-   opacity: 1;
-}
-body[data-theme="light"] :-ms-input-placeholder{ /* Internet Explorer 10-11 */
-   color: #000;
-}
-body[data-theme="light"] ::-ms-input-placeholder { /* Microsoft Edge */
-   color: #000;
-}
-body[data-theme="light"] ::placeholder { /* Most modern browsers support this now. */
-   color: #000;
-}
-
-
-
-
-
-
-
-/* show currently enabled theme */
-body[data-theme="dark"] .set-theme[data-theme="dark"] {
-    text-decoration: underline;
-}
-
-body[data-theme="light"] .set-theme[data-theme="light"] {
-    text-decoration: underline;
-}
-/* end themes */
 
 body {
-    font-family: "Courier New", monospace;
-    font-size: 16pt;
-    margin: 0.618em 0 0 0;
-    padding: 0;
+  background-color: #000;
+  font-family: 'Courier New', monospace;
+  font-size: 16pt;
+  margin: 0.618em 0 0 0;
+  padding: 0;
 }
 
-input {
-    font-family: inherit;
-    font-size: inherit;
-    border: none;
+body, a {
+  color: #aaa;
+  text-decoration: none;
 }
 
-input:focus {
-    outline:none;
+body a:hover {
+  color: #a00;
 }
 
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
-input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
-input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
-
-#page-header, #page-footer, #article-title, #article-date {
-    text-align: center;
-    clear:both;
+ul,li {
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  list-style-type: none;
 }
 
-body,
-a {
-    text-decoration: none;
+#layout-header {
+  font-size: 1.618em;
 }
 
-#page-header, #article-title {
-    font-size: 1.618em;
+#layout-footer {
+  font-size: 0.618em;
 }
 
-#page-footer, #article-date {
-    font-size: 0.618em;
+#layout-footer div{
+  margin-bottom: 0.618em;
 }
 
-#page-content {
-    margin: 1.618em 0 1.618em 0;
+#layout-content {
+  margin: 1.618em 0 1.618em 0;
+  display: table;
+  width: 100%;
 }
 
-#article {
-    width: 50%;
-    clear: none;
-    float: left;
-    min-height: 439px;
+#layout-nav, #layout-present {
+  display: table-cell;
+  vertical-align: text-top;
 }
 
-#article-content {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    max-width: 1013px;
-    margin: 0 auto 0 auto;
+#layout-nav {
+  width: 7em;
 }
 
-#nav {
-    width: 25%;
-    float: left;
-    text-align: left;
-    /* border-right: 1px solid #a00; */
+#layout-present {
+  border-left: 1px solid #aaa;
+  padding-left: 0.618em;
 }
 
-#recent {
-    width: 25%;
-    float: right;
-    text-align: right;
-    /* border-left: 1px solid #a00; */
+#layout-present-heading {
+  padding: 0;
+  margin: 0;
 }
 
-#nav, #recent, #article {
-    box-sizing: border-box;
-    padding: 0 0.618em 0 0.618em;
+#layout-present-content {
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-#page-footer div {
-    margin: 0 0 0.618em 0;
+.section-contents li span{
+  display: block;
+  padding-left: 1.618em;
+  font-size: 0.618em;
 }
 
-#nav-pagination, a.article-link, .nav-no-dynamite {
-    display: block;
-    margin-top: 0.618em;
-}
-
-a.article-link .pub-date {
-    font-size: 0.618em;
-}
-
-a.article-link div{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-[data-show="off"] {
-    display: none;
-}
-
-#footer-toggles {
-    font-size: 1.618em;
-}
-
-.nav-page-link {
-    display: inline-block;
-    margin-right: 0.618em;
-}
-
-#nav-links {
-    clear: both;
-    margin-top: 1.618em;
-}
-
-#nav-search input {
-    width: 100%;
-}
-#nav-controls {
-    font-size: 0.618em;
-}
-
-#nav-controls a {
-    display: inline-block;
-    margin-right: 0.618em;
-    float: left;
-}
-
-#nav-controls #nav-clear {
-    margin-left: 1.618em;
-}
-
-[data-current="true"] {
-    text-decoration: underline;
+.error {
+  color: #f00;
 }
 
 @media screen and (max-width: 600px) {
-    #article, #nav, #recent {
-        width: 100%;
-    }
-    #nav, #recent {
-        text-align: center;
-        margin: 0 0 1.618em 0;
-        padding-top: 0;
-    }
+  #layout-nav, #layout-present {
+    display: block;
+    width: 100%;
+  }
 
-    #recent {
-        margin-top: 1.618em;
-    }
+  #layout-nav {
+    margin-bottom: 1.618em;
+  }
+
+  #layout-content {
+    display: block;
+  }
 }
