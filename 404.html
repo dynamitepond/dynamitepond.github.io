@@ -8,44 +8,93 @@
     404 Page not found | Dynamite Pond
   </title>
   <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="stylesheet" type="text/css" href="/css/site.css">
+  
+  <style>
+
+body, a {
+  text-decoration: none;
+  color: #aaa;
+}
+body a:hover {
+  color: #a00;
+}
+body,p,h1,h2,h3,ul,li {
+  padding: 0;
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+p {
+  padding: 0.618em 0 0.618em 0;
+  margin: 0;
+}
+h2 {
+  font-weight: normal;
+  font-size: 1.618em;
+}
+ul li {
+  list-style-type: none;
+}
+#layout-nav li {
+  display: inline-block;
+  padding-left: 0.236em;
+  margin-left: 1px;
+  border-left: 1px solid #aaa;
+}
+
+#layout-nav li:hover, #layout-nav li.current {
+  border-color: #a00;
+}
+
+  </style>
+
 </head>
 
-<body>
-  <div id="layout-header">
+<body style="
+  font-family: 'Courier New', monospace;
+  font-size: 16pt;
+  background-color: #000;">
+
+  <div style="font-size: 1.618em; margin-bottom: 0.618em;">
     <a href="/">Dynamite Pond</a>
   </div>
 
-  <div id="layout-content">
-    
-    <div id="layout-nav">
-      <ul>
-        <li><a href="/article">> Articles</a></li>
-      </ul>
-    </div>
+  <div id="layout-nav">
+    <ul>
+      <li >
+        <a href="/">Home</a></li>
+      <li >
+        <a href="/article/">Articles</a></li>
+      <li >
+        <a href="/about/">About</a></li>
+      <li >
+        <a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
 
-    <div id="layout-present">
-      <h2 id="layout-present-heading">404 Page not found</h2>
-      <span id="layout-present-date"></span>
-      <div id="layout-present-content">
-        
-    <div class="error">
+  <div style="
+    max-width: 61.8em;
+    margin: 1.618em 0 1.618em 0.618em;
+    padding-left: 0.618em;
+    border-left: 1px solid #aaa;">
+
+    <h2>404 Page not found</h2>
+    <span></span>
+    <div style="font-family: Georgia, 'Times New Roman', Times, serif;">
+      
+    <div style="color: #f00">
       Not Found
     </div>
 
-      </div>
     </div>
-
-
   </div>
 
-  <div id="layout-footer">
+  <div style="font-size: 0.618em">
     <div>
       &copy; 2020
       R J R MacKenzie
-    </div>
-    <div>
-      contact@dynamitepond.com
     </div>
   </div>
 
