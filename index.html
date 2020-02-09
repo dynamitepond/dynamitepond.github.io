@@ -5,20 +5,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>
-    Welcome | Dynamite Pond
+    A Simple Website | Dynamite Pond
   </title>
   <link rel="icon" type="image/png" href="/favicon.png">
   
   <style>
 
 body, a {
-  text-decoration: none;
   color: #aaa;
 }
-body a:hover {
+a:hover {
   color: #a00;
 }
-body,p,h1,h2,h3,ul,li {
+body,p,h1,h2,h3,h4,ul,li {
   padding: 0;
   margin: 0;
   margin-block-start: 0;
@@ -26,26 +25,63 @@ body,p,h1,h2,h3,ul,li {
   margin-inline-start: 0;
   margin-inline-end: 0;
 }
-p {
-  padding: 0.618em 0 0.618em 0;
-  margin: 0;
+body,h1,h2,h3,h4 {
+  font-family: 'Courier New', monospace;
+  font-weight: normal;
 }
 h2 {
-  font-weight: normal;
   font-size: 1.618em;
+}
+h3 {
+  margin-top: 0.618em;
+  font-size: 1.382em;
+}
+h4 {
+  font-size: 1.236;
+}
+p {
+  padding: 0.618em 0 0.618em 0;
+  margin: 0 0 0 0;
 }
 ul li {
   list-style-type: none;
 }
-#layout-nav li {
+
+blockquote {
+  margin: 0.618em 0 0.618em 1.618em;
+  padding: 0 0.618em 0 0.618em;
   display: inline-block;
-  padding-left: 0.236em;
-  margin-left: 1px;
-  border-left: 1px solid #aaa;
+    
+    
+  border-left: 4px solid #a00;
 }
 
-#layout-nav li:hover, #layout-nav li.current {
-  border-color: #a00;
+blockquote p:last-child {
+  text-align: right;
+}
+
+.markdown-content ul, .markdown-content ol {
+  padding: 0 0 0 1.618em;
+}
+
+.markdown-content ul li{
+  list-style-type: disc;
+  padding-bottom: 0.618em;
+}
+
+.footnote-ref {
+  color: #a00;
+}
+
+.footnotes {
+  font-size: 0.618em;
+  margin: 1.618em 0 0 0em;
+  padding: 0 0.618em 0 0.618em;;
+  border-left: 1px solid #a00;
+}
+
+.footnotes hr {
+  display: none;
 }
 
   </style>
@@ -53,26 +89,80 @@ ul li {
 </head>
 
 <body style="
-  font-family: 'Courier New', monospace;
   font-size: 16pt;
   background-color: #000;">
 
   <div style="font-size: 1.618em; margin-bottom: 0.618em;">
-    <a href="/">Dynamite Pond</a>
-  </div>
+  <a style="text-decoration: none;" href="/">Dynamite Pond</a>
+</div>
 
-  <div id="layout-nav">
-    <ul>
-      <li  class="current">
-        <a href="/">Home</a></li>
-      <li >
-        <a href="/article/">Articles</a></li>
-      <li >
-        <a href="/about/">About</a></li>
-      <li >
-        <a href="/contact/">Contact</a></li>
-    </ul>
-  </div>
+  <div>
+  <ul>
+    
+    
+    
+    
+
+    <li style="
+      display: inline-block;
+      padding: 0;
+      margin: 0 0.618em 0 0;">
+
+      
+      <a style="
+        text-decoration: none;
+        padding-left: 0.236em;
+        margin-left: 1px;
+        border-left: 1px solid 
+          #a00 ;"
+         class="current" href="/">
+        Home
+      </a>
+    </li><li style="
+      display: inline-block;
+      padding: 0;
+      margin: 0 0.618em 0 0;">
+
+      
+      <a style="
+        text-decoration: none;
+        padding-left: 0.236em;
+        margin-left: 1px;
+        border-left: 1px solid  #aaa ;"
+         href="/article/">
+        Articles
+      </a>
+    </li><li style="
+      display: inline-block;
+      padding: 0;
+      margin: 0 0.618em 0 0;">
+
+      
+      <a style="
+        text-decoration: none;
+        padding-left: 0.236em;
+        margin-left: 1px;
+        border-left: 1px solid  #aaa ;"
+         href="/about/">
+        About
+      </a>
+    </li><li style="
+      display: inline-block;
+      padding: 0;
+      margin: 0 0.618em 0 0;">
+
+      
+      <a style="
+        text-decoration: none;
+        padding-left: 0.236em;
+        margin-left: 1px;
+        border-left: 1px solid  #aaa ;"
+         href="/contact/">
+        Contact
+      </a>
+    </li>
+  </ul>
+</div>
 
   <div style="
     max-width: 61.8em;
@@ -80,22 +170,24 @@ ul li {
     padding-left: 0.618em;
     border-left: 1px solid #aaa;">
 
-    <h2>Welcome</h2>
+    <h2>A Simple Website</h2>
     <span></span>
-    <div style="font-family: Georgia, 'Times New Roman', Times, serif;">
+    <div class="markdown-content"
+      style="font-family: Georgia, 'Times New Roman', Times, serif;">
       
-  <p>Welcome to Dynamite Pond.</p>
+  <p>Welcome to Dynamite Pond. This is a minimal website designed to convey information to the wider world. You will not be troubled by cookies, popups, or any other intrusive web development practices. Read more on the <a href="/article/first/">philosophy</a> behind this site.</p>
+<p>Peruse at your leisure. Hopefully you find something interesting.</p>
 
 
     </div>
   </div>
 
   <div style="font-size: 0.618em">
-    <div>
-      &copy; 2020
-      R J R MacKenzie
-    </div>
+  <div>
+    &copy; 2020
+    R J R MacKenzie
   </div>
+</div>  
 
 </body>
 

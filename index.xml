@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Welcome on Dynamite Pond</title>
+    <title>A Simple Website on Dynamite Pond</title>
     <link>//dynamitepond.com/</link>
-    <description>Recent content in Welcome on Dynamite Pond</description>
+    <description>Recent content in A Simple Website on Dynamite Pond</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 08 Feb 2020 13:43:43 +1300</lastBuildDate>
+    <lastBuildDate>Sun, 09 Feb 2020 13:01:43 +1300</lastBuildDate>
     
 	<atom:link href="//dynamitepond.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>First article</title>
+      <title>Apropos sharing with the world</title>
       <link>//dynamitepond.com/article/first/</link>
-      <pubDate>Sat, 08 Feb 2020 13:43:43 +1300</pubDate>
+      <pubDate>Sun, 09 Feb 2020 13:01:43 +1300</pubDate>
       
       <guid>//dynamitepond.com/article/first/</guid>
-      <description>This is my first article testing. testing testing testing testing testing testing testing testing testing testing testing. testing testing testing testing testing dsas g r resdsearwaes fasrg. grsgsergesrag sgaserd gasrdg aergasrefg asef awsef wareg etsergh wafr gerg rgfae. gasrgaef gsaefg asreg. drhgbawer grfcxvzxcgawe r asg asrgasdfawg dfgaewrg erasg aergsdzfg aergfdg b.
-This is a second paragraph. aasaf naeoaesf; lkakf ;sl. jieoa;kf knf oekna; as;fokenf oenak ;onfkaeoeodfdknd. d ioen dfkasldfaseon i.</description>
+      <description>At some point, everyone has something they want to say. The challenge is knowing how to say it, and who to say it to. Family, friends, colleagues - they are all viable and perhaps necessary outlets for pent up genius. But can you trust them? Will they listen? Will they even understand? Are they below you, or do they consider themselves superior?
+Fortunately for those in a quandary the internet provides a soothing regurgitant.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>//dynamitepond.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//dynamitepond.com/about/</guid>
+      <description>Dynamite Pond is a static website generated using Hugo and hosted on GitHub Pages. It is designed to be minimal and easy to navigate.
+Layout and style The layout has been kept very simple, to improve compatibility with many devices. The styling is also minimal, no animations or pop ups to frustate a reader with delays and hiding menus.
+Advertising At the moment there are no advertisements on this site, and I will never include any javascript/markup from a third party advertising company.</description>
     </item>
     
     <item>
@@ -27,17 +38,8 @@ This is a second paragraph. aasaf naeoaesf; lkakf ;sl. jieoa;kf knf oekna; as;fo
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//dynamitepond.com/contact/</guid>
-      <description>If you have any comments, questions, or anything else, please compose an email and send it to:
+      <description>If you have any comments, questions, feedback, or anything else, please compose an email and send it to:
 contact@dynamitepond.com</description>
-    </item>
-    
-    <item>
-      <title>Further Information</title>
-      <link>//dynamitepond.com/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//dynamitepond.com/about/</guid>
-      <description>Dynamite Pond is a static website generated using Hugo.</description>
     </item>
     
   </channel>
