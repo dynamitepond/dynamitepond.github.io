@@ -17,7 +17,7 @@ body, a {
 a:hover {
   color: #a00;
 }
-body,p,h1,h2,h3,h4,ul,li {
+body,p,h1,h2,h3,h4,ul,li,pre {
   padding: 0;
   margin: 0;
   margin-block-start: 0;
@@ -25,7 +25,7 @@ body,p,h1,h2,h3,h4,ul,li {
   margin-inline-start: 0;
   margin-inline-end: 0;
 }
-body,h1,h2,h3,h4 {
+body,h1,h2,h3,h4,code {
   font-family: 'Courier New', monospace;
   font-weight: normal;
 }
@@ -38,6 +38,7 @@ h3 {
 }
 h4 {
   font-size: 1.236;
+  font-weight: bold;
 }
 p {
   padding: 0.618em 0 0.618em 0;
@@ -53,7 +54,11 @@ hr {
   border-top: 1px solid #aaa;
 
 }
-blockquote {
+code {
+  display: inline-block;
+  border-left: 4px solid #a00;
+}
+blockquote, code {
   margin: 0.618em 0 0.618em 1.618em;
   padding: 0 0.618em 0 0.618em;
   display: inline-block;

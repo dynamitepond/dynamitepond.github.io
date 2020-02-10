@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: dynamitepond.com
+Token: e585524da7ce8b0e2836c9847207db6a694d592ea3ba76c6260e036b553bcf80
