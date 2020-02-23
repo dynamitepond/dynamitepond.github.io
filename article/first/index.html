@@ -36,9 +36,9 @@ body { font-size: 16pt; line-height: 1.618; }
 h1 { font-size: 2.618em; }
 h2 { font-size: 2.000em; }
 h3 { font-size: 1.618em; }
-h4 { font-size: 1.382em; }
-h5 { font-size: 1.236em; }
-h6 { font-size: 1.146em; }
+h4 { font-size: 1.206em; }
+h5 { font-size: 1.069em; }
+h6 { font-size: 1.023em; }
 #site-footer > *,
 #section-index-content a span,
 .footnotes,
@@ -81,7 +81,7 @@ h1,h2,h3,h4,h5,h6 {
 #site-content {
   margin-bottom: 2.618em;
 }
-p + *, ul + *, blockquote + *,
+p + *, ul + *, blockquote + *, pre + *,
 #section-index-content li + li {
   margin-top: 0.618em;
 }
@@ -98,6 +98,9 @@ sub {
 }
 
  
+h1,h2,h3,h4,h5,h6 {
+
+}
 #site-heading, #site-content, #site-nav, #site-footer {
   margin-left: auto;
   margin-right: auto;
@@ -125,10 +128,10 @@ blockquote {
 }
 #site-content ul,
 #site-content ol {
-  margin-left: 2em;
+  padding-left: 3em;
 }
 #site-content .footnotes ol {
-  margin-left: 1em;
+  padding-left: 1.618em;
 }
 #site-content ul#section-index-content {
   margin-left: 0;
@@ -173,6 +176,10 @@ blockquote {
 }
 
  
+h4::before, h5::before, h6::before {
+  content: ">> ";
+}
+
 .footnotes hr {
   display: none;
 }
